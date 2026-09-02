@@ -1,57 +1,25 @@
 const root = document.documentElement;
-const themeToggle = document.querySelector('#theme-toggle');
-let savedTheme = null;
-try {
-  savedTheme = window.localStorage.getItem('eureka-theme');
-} catch (error) {
-  savedTheme = null;
-}
+root.dataset.theme = 'light';
 
-const applyTheme = (theme) => {
-  root.dataset.theme = theme;
-  const darkMode = theme === 'dark';
-  themeToggle.setAttribute('aria-label', darkMode ? 'Activar tema claro' : 'Activar tema oscuro');
-  themeToggle.innerHTML = `<i data-lucide="${darkMode ? 'sun' : 'moon'}"></i><span>Tema</span>`;
-  lucide.createIcons();
+const tabLinks = document.querySelectorAll('[data-tab-target]');
+const tabPanels = document.querySelectorAll('.tab-panel');
+
+const showTab = (targetId) => {
+  tabPanels.forEach((panel) => { panel.hidden = panel.id !== targetId; });
+  tabLinks.forEach((link) => link.setAttribute('aria-selected', String(link.dataset.tabTarget === targetId)));
+  document.querySelector(`#${targetId}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 };
 
-const preferredTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-applyTheme(savedTheme || preferredTheme);
-
-themeToggle.addEventListener('click', () => {
-  const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
-  const update = () => {
-    applyTheme(nextTheme);
-    try {
-      window.localStorage.setItem('eureka-theme', nextTheme);
-    } catch (error) {
-    }
-  };
-  if (document.startViewTransition) {
-    root.dataset.theme = nextTheme;
-    document.startViewTransition(update);
-  } else update();
-});
-
-const questions = [
-  '¿Qué es Viguiera procumbens y cómo se relaciona con Aldama helianthoides?',
-  '¿Qué diferencia existe entre un suplemento y un tratamiento médico para la prostatitis?',
-  '¿Qué información debe revisarse antes de consumir un extracto encapsulado?',
-  '¿Por qué la duración y la conservación son importantes en un producto vegetal?',
-  '¿Cuándo es necesario consultar a un especialista por síntomas urinarios?'
-];
-
-const questionText = document.querySelector('#question-text');
-const newQuestionButton = document.querySelector('#new-question');
-let questionIndex = 0;
-
-newQuestionButton.addEventListener('click', () => {
-  questionIndex = (questionIndex + 1) % questions.length;
-  questionText.textContent = '';
-  [...questions[questionIndex]].forEach((character, index) => {
-    setTimeout(() => { questionText.textContent += character; }, index * 22);
+tabLinks.forEach((link) => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    showTab(link.dataset.tabTarget);
+    history.replaceState(null, '', link.hash);
   });
 });
+
+const initialTab = window.location.hash.slice(1);
+if ([...tabPanels].some((panel) => panel.id === initialTab)) showTab(initialTab);
 
 const processCards = document.querySelectorAll('.process-card');
 processCards.forEach((card) => {
@@ -117,10 +85,6 @@ document.addEventListener('click', (event) => {
   if (event.target.closest('button, .button, .header-cta, .text-link') && !event.target.closest('#sound-toggle')) playTone(520, .055);
 }, { capture: true });
 
-document.querySelector('#question-popover').addEventListener('toggle', (event) => {
-  if (event.newState === 'open') playTone(740, .12, 'triangle');
-});
-
 const revealObserver = new IntersectionObserver((entries, observer) => {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) return;
@@ -173,68 +137,4 @@ new ResizeObserver(resizeCanvas).observe(stage);
 resizeCanvas();
 requestAnimationFrame(drawOrbit);
 
-// Renderiza una tarjeta 1200 x 630 lista para descargar o copiar.
-const renderQuestionCard = () => {
-  const shareCanvas = document.createElement('canvas');
-  shareCanvas.width = 1200;
-  shareCanvas.height = 630;
-  const shareContext = shareCanvas.getContext('2d');
-  shareContext.fillStyle = '#142321';
-  shareContext.fillRect(0, 0, 1200, 630);
-  shareContext.fillStyle = '#d8f46c';
-  shareContext.fillRect(0, 0, 18, 630);
-  shareContext.fillStyle = '#f2765b';
-  shareContext.font = '500 22px monospace';
-  shareContext.fillText('EUREKA / PREGUNTA ALEATORIA / 2026', 70, 82);
-  shareContext.fillStyle = '#f4f1e9';
-  shareContext.font = '500 54px sans-serif';
-  const words = questionText.textContent.trim().split(' ');
-  const lines = [];
-  let line = '';
-  words.forEach((word) => {
-    const candidate = `${line} ${word}`.trim();
-    if (shareContext.measureText(candidate).width > 1000 && line) {
-      lines.push(line);
-      line = word;
-    } else line = candidate;
-  });
-  lines.push(line);
-  lines.forEach((text, index) => shareContext.fillText(text, 70, 220 + index * 70));
-  shareContext.fillStyle = '#b8e3dc';
-  shareContext.font = '20px monospace';
-  shareContext.fillText('Una pregunta a la vez.', 70, 560);
-  shareContext.fillStyle = '#d8f46c';
-  shareContext.font = '500 28px sans-serif';
-  shareContext.fillText('↗', 1100, 560);
-  return shareCanvas;
-};
-
-const flashButtonLabel = (button, label) => {
-  const original = button.innerHTML;
-  button.textContent = label;
-  setTimeout(() => { button.innerHTML = original; lucide.createIcons(); }, 1500);
-};
-
-document.querySelector('#download-question').addEventListener('click', () => {
-  renderQuestionCard().toBlob((blob) => {
-    const link = document.createElement('a');
-    link.download = 'eureka-pregunta-2026.png';
-    link.href = URL.createObjectURL(blob);
-    link.click();
-    URL.revokeObjectURL(link.href);
-  }, 'image/png');
-  flashButtonLabel(document.querySelector('#download-question'), 'PNG listo');
-});
-
-document.querySelector('#copy-question').addEventListener('click', async () => {
-  const shareCanvas = renderQuestionCard();
-  try {
-    const blob = await new Promise((resolve) => shareCanvas.toBlob(resolve, 'image/png'));
-    if (navigator.clipboard?.write && window.ClipboardItem) await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
-    else await navigator.clipboard.writeText(questionText.textContent);
-    flashButtonLabel(document.querySelector('#copy-question'), 'Copiado');
-  } catch (error) {
-    flashButtonLabel(document.querySelector('#copy-question'), 'Selecciona y copia');
-  }
-});
 
