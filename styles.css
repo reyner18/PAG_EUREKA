@@ -9,7 +9,7 @@
   --glass: rgba(91, 153, 145, .16);
   --shadow: rgba(0, 0, 0, .3);
   --mono: 'DM Mono', monospace;
-  --sans: 'Plus Jakarta Sans', sans-serif;
+  --sans: 'Manrope', sans-serif;
 }
 
 /* Paleta oscura global: evita que las superficies vuelvan al blanco crema. */
@@ -56,6 +56,7 @@ h1, h2, p { margin-top: 0; }
 h1 { font-size: clamp(3.35rem, 6.1vw, 5.9rem); line-height: .96; letter-spacing: -.065em; margin-bottom: 33px; font-weight: 500; }
 h1 em, h2 em { font-style: normal; color: var(--coral); }
 .hero-intro { color: var(--muted); max-width: 365px; font-size: clamp(1rem, 1.3vw, 1.1rem); margin-bottom: 34px; }
+.hero-intro, .hero-facts span { text-align: justify; }
 .hero-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 520px; margin: 0 0 34px; padding-top: 15px; border-top: 1px solid var(--line); }
 .hero-facts span { color: var(--muted); font: 10px var(--mono); line-height: 1.45; }
 .hero-facts strong { display: block; color: var(--coral); font-weight: 400; text-transform: uppercase; }
@@ -82,6 +83,7 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
 .display-text span { color: var(--coral); }
 .statement-aside { padding-top: 9px; color: var(--muted); font-size: 15px; }
 .statement-aside p:first-child { line-height: 1.6; }
+.statement-aside p, .display-text { text-align: justify; }
 .rule { height: 1px; background: var(--line); margin: 35px 0; }
 .mono-text { font: 12px var(--mono); line-height: 1.6; }
 .vital-research { position: relative; isolation: isolate; padding-top: 110px; padding-bottom: 135px; background: radial-gradient(circle at 8% 12%, rgba(184, 227, 220, .42), transparent 30%), radial-gradient(circle at 90% 75%, rgba(216, 244, 108, .2), transparent 26%), var(--paper); }
@@ -91,6 +93,7 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
 .medical-notice { display: flex; gap: 16px; align-items: flex-start; max-width: 820px; margin-bottom: 32px; padding: 19px 22px; border: 1px solid rgba(242, 118, 91, .42); border-radius: 12px; background: rgba(64, 112, 107, .22); color: var(--ink); box-shadow: 0 10px 30px rgba(0, 0, 0, .18); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 .medical-notice svg { width: 22px; min-width: 22px; color: var(--coral); filter: drop-shadow(0 0 8px rgba(242, 118, 91, .6)); }
 .medical-notice p { margin: 0; font-size: 13px; }
+.medical-notice p, .vital-card p, .vital-card li, .vital-warning p, .evidence-card p, .evidence-source p { text-align: justify; }
 .vital-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .vital-card { min-height: 250px; padding: 27px; border: 1px solid rgba(133, 211, 198, .2); border-radius: 18px; background: rgba(42, 79, 79, .7); box-shadow: 0 10px 30px rgba(0, 0, 0, .22); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); transition: transform .3s ease, box-shadow .3s ease; }
 .vital-card:hover { transform: translateY(-5px); box-shadow: 0 18px 40px rgba(0, 0, 0, .1); }
@@ -132,6 +135,7 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
 .process-card svg { width: 29px; height: 29px; stroke-width: 1.2; position: absolute; top: 21px; right: 22px; }
 .process-card h3 { font-size: clamp(1.25rem, 2vw, 1.7rem); margin: 70px 0 8px; }
 .process-card p { color: var(--muted); font-size: 13px; max-width: 260px; margin: 0; }
+.process-card p { text-align: justify; }
 .process-card-share p { color: rgba(244, 241, 233, .7); }
 .process-grid:has(.process-card:hover) .process-card:not(:hover) { opacity: .62; }
 .process-card:hover { transform: perspective(900px) translateY(-6px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) rotate(-.4deg); background: rgba(67, 119, 115, .88); box-shadow: 0 18px 35px var(--shadow); opacity: 1 !important; }
@@ -195,6 +199,7 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
 .explore-body { display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; align-items: end; position: relative; z-index: 1; margin: 85px 0 90px; }
 .explore h2 em { color: var(--lime); }
 .explore-body > div > p { max-width: 270px; margin: 24px 0 0; font-size: 14px; }
+.explore-body > div > p, .question-box p, .team-copy p { text-align: justify; }
 .question-launcher { display: inline-flex; align-items: center; gap: 10px; margin-top: 28px; padding: 12px 15px; border: 1px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; font: 11px var(--mono); text-transform: uppercase; }
 .question-launcher:hover { background: var(--lime); }
 .question-launcher svg { width: 15px; }
