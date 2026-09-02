@@ -73,6 +73,55 @@ processCards.forEach((card) => {
   });
 });
 
+const filterButtons = document.querySelectorAll('.filter-button');
+const projectCards = document.querySelectorAll('.project-card');
+const projectCount = document.querySelector('#project-count');
+const emptyProjects = document.querySelector('#empty-projects');
+const favoriteButtons = document.querySelectorAll('.favorite-button');
+let favoriteProjects = [];
+
+try {
+  favoriteProjects = JSON.parse(window.localStorage.getItem('eureka-favorites') || '[]');
+} catch (error) {
+  favoriteProjects = [];
+}
+
+const updateFavoriteButton = (button, isFavorite) => {
+  const card = button.closest('.project-card');
+  const projectName = card.querySelector('h3').textContent;
+  button.setAttribute('aria-pressed', String(isFavorite));
+  button.setAttribute('aria-label', `${isFavorite ? 'Quitar' : 'Guardar'} ${projectName} ${isFavorite ? 'de' : 'en'} favoritos`);
+};
+
+favoriteButtons.forEach((button) => {
+  const projectId = button.closest('.project-card').dataset.projectId;
+  updateFavoriteButton(button, favoriteProjects.includes(projectId));
+  button.addEventListener('click', () => {
+    const isFavorite = !favoriteProjects.includes(projectId);
+    favoriteProjects = isFavorite ? [...favoriteProjects, projectId] : favoriteProjects.filter((id) => id !== projectId);
+    try {
+      window.localStorage.setItem('eureka-favorites', JSON.stringify(favoriteProjects));
+    } catch (error) {
+    }
+    updateFavoriteButton(button, isFavorite);
+  });
+});
+
+filterButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const selectedFilter = button.dataset.filter;
+    let visibleProjects = 0;
+    filterButtons.forEach((filterButton) => filterButton.setAttribute('aria-pressed', String(filterButton === button)));
+    projectCards.forEach((card) => {
+      const matches = selectedFilter === 'all' || card.dataset.category === selectedFilter;
+      card.hidden = !matches;
+      if (matches) visibleProjects += 1;
+    });
+    projectCount.textContent = `${visibleProjects} ${visibleProjects === 1 ? 'proyecto' : 'proyectos'}`;
+    emptyProjects.hidden = visibleProjects !== 0;
+  });
+});
+
 const soundToggle = document.querySelector('#sound-toggle');
 const soundLabel = soundToggle.querySelector('span');
 let audioContext;
