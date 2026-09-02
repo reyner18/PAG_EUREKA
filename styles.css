@@ -77,7 +77,7 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
 .process-card p { color: var(--muted); font-size: 13px; max-width: 260px; margin: 0; }
 .process-card-share p { color: rgba(244, 241, 233, .7); }
 .process-grid:has(.process-card:hover) .process-card:not(:hover) { opacity: .62; }
-.process-card:hover { transform: translateY(-6px) rotate(-.4deg); background: rgba(255, 255, 255, .55); box-shadow: 0 18px 35px var(--shadow); opacity: 1 !important; }
+.process-card:hover { transform: perspective(900px) translateY(-6px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) rotate(-.4deg); background: rgba(255, 255, 255, .55); box-shadow: 0 18px 35px var(--shadow); opacity: 1 !important; }
 .process-card-share:hover { background: var(--ink); }
 .explore { padding-bottom: 130px; }
 .explore-panel { background: var(--coral); padding: 41px 5vw 35px; color: var(--ink); position: relative; overflow: hidden; }
@@ -107,6 +107,10 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
 .site-footer { background: var(--ink); color: var(--paper); min-height: 92px; padding: 0 5vw; display: flex; align-items: center; justify-content: space-between; font: 11px var(--mono); }
 .site-footer .brand { color: var(--paper); }
 .site-footer .brand-mark { color: var(--ink); }
+.sound-toggle { position: fixed; right: 24px; bottom: 24px; z-index: 10; display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); padding: 10px 12px; cursor: pointer; box-shadow: 0 10px 24px var(--shadow); font: 10px var(--mono); text-transform: uppercase; transition: transform .25s ease, background .25s ease; }
+.sound-toggle:hover { transform: translateY(-3px); background: var(--lime); }
+.sound-toggle svg { width: 15px; }
+.sound-toggle[aria-pressed="true"] { background: var(--lime); }
 
 [data-theme="dark"] { --ink: #eef4e8; --paper: #172421; --muted: #a3b4ad; --line: #3c514a; --glass: rgba(255, 255, 255, .08); --shadow: rgba(0, 0, 0, .3); }
 [data-theme="dark"] .statement { background: #21332f; }
@@ -160,4 +164,5 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
   .site-footer .brand { grid-column: 1; grid-row: 1; }
   .site-footer span:nth-child(2) { grid-column: 1 / -1; grid-row: 2; }
   .site-footer span:last-child { text-align: right; grid-column: 2; grid-row: 1; }
+  .sound-toggle { right: 14px; bottom: 14px; }
 }
