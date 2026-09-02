@@ -24,7 +24,10 @@
       <a href="#proceso">Proceso</a>
       <a href="#equipo">Equipo</a>
     </nav>
-    <a class="header-cta" href="#explora">Explora <i data-lucide="arrow-up-right"></i></a>
+    <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Activar tema oscuro" title="Cambiar tema"><i data-lucide="moon"></i><span>Tema</span></button>
+      <a class="header-cta" href="#explora">Explora <i data-lucide="arrow-up-right"></i></a>
+    </div>
   </header>
 
   <main id="inicio">
@@ -35,7 +38,8 @@
         <p class="hero-intro">Eureka es nuestro espacio para investigar, crear y convertir la curiosidad en algo que se pueda compartir.</p>
         <a class="button button-dark" href="#idea">Conoce el proyecto <i data-lucide="arrow-down"></i></a>
       </div>
-      <div class="hero-visual">
+      <div class="hero-visual" id="orbital-stage" data-canvas-ready="true">
+        <canvas class="orbit-canvas" id="orbit-canvas" aria-hidden="true"></canvas>
         <div class="image-frame">
           <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1100&q=85" alt="Estudiante observando un experimento de ciencia en un laboratorio">
           <span class="image-label">01 / observar</span>
@@ -79,11 +83,12 @@
           <div>
             <h2>¿Qué tipo de<br><em>explorador</em> eres?</h2>
             <p>Elige una puerta y descubre una pregunta para empezar tu propia investigación.</p>
+            <button class="question-launcher" type="button" popovertarget="question-popover" popovertargetaction="show">Abrir una pregunta <i data-lucide="arrow-up-right"></i></button>
           </div>
-          <div class="question-box" aria-live="polite">
+          <div class="question-box" id="question-popover" popover="auto" aria-live="polite">
             <span class="question-kicker">PREGUNTA ALEATORIA</span>
             <p id="question-text">¿Qué cambiarías de tu colegio si pudieras probar una idea durante un día?</p>
-            <button class="icon-button" id="new-question" type="button" aria-label="Generar una nueva pregunta" title="Nueva pregunta"><i data-lucide="refresh-cw"></i></button>
+            <button class="icon-button" id="new-question" type="button" popovertarget="question-popover" popovertargetaction="show" aria-label="Generar una nueva pregunta" title="Nueva pregunta"><i data-lucide="refresh-cw"></i></button>
           </div>
         </div>
         <div class="explore-footer"><span>Tu turno</span><span class="footer-arrow">↘</span><span>La siguiente gran idea<br>podría ser tuya.</span></div>
@@ -102,6 +107,6 @@
 
   <footer class="site-footer"><a class="brand" href="#inicio"><span class="brand-mark">E</span><span>EUREKA<span class="brand-dot">.</span></span></a><span>Una pregunta a la vez.</span><span>© 2026</span></footer>
   <script>lucide.createIcons();</script>
-  <script src="script.js"></script>
+  <script src="script.js?v=2026"></script>
 </body>
 </html>
