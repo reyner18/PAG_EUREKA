@@ -99,6 +99,8 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
 .project-card h3 { max-width: 270px; margin: 8px 0 10px; font-size: clamp(1.5rem, 2.4vw, 2.2rem); line-height: .98; letter-spacing: -.05em; font-weight: 500; }
 .project-card p { max-width: 260px; margin: 0; color: var(--muted); font-size: 13px; }
 .project-arrow { position: absolute; right: 24px; bottom: 19px; font-size: 25px; }
+.project-open { display: inline-flex; align-items: center; gap: 7px; margin-top: 22px; border: 0; border-bottom: 1px solid currentColor; background: transparent; color: inherit; padding: 0 0 4px; cursor: pointer; font: 10px var(--mono); text-transform: uppercase; }
+.project-open svg { width: 14px; }
 .project-card-coral { background: rgba(242, 118, 91, .7); }
 .project-card-aqua { background: rgba(184, 227, 220, .75); }
 .project-card-lime { background: var(--lime); }
@@ -108,6 +110,26 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
 .project-card-sky { background: #b9d2ed; }
 .project-card:hover { transform: translateY(-5px); box-shadow: 0 18px 35px var(--shadow); }
 .empty-projects { margin: 34px 0 0; color: var(--muted); font: 12px var(--mono); }
+.project-dialog { width: min(880px, calc(100% - 36px)); padding: 38px; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); box-shadow: 0 28px 90px rgba(0, 0, 0, .28); }
+.project-dialog::backdrop { background: rgba(20, 35, 33, .64); backdrop-filter: blur(8px); }
+.dialog-close { position: absolute; top: 18px; right: 18px; display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid currentColor; background: transparent; color: inherit; cursor: pointer; }
+.dialog-close:hover { background: var(--coral); }
+.dialog-close svg { width: 16px; }
+.dialog-header { display: flex; justify-content: space-between; padding-right: 42px; }
+.project-dialog h2 { margin: 32px 0 10px; font-size: clamp(2.5rem, 5vw, 4.8rem); line-height: .9; letter-spacing: -.06em; font-weight: 500; }
+.dialog-description { max-width: 560px; color: var(--muted); }
+.dialog-tabs { display: flex; gap: 22px; border-bottom: 1px solid var(--line); margin-top: 34px; }
+.dialog-tab { border: 0; border-bottom: 2px solid transparent; background: transparent; color: var(--muted); padding: 10px 0; cursor: pointer; font: 11px var(--mono); text-transform: uppercase; }
+.dialog-tab.is-active { border-color: var(--coral); color: var(--ink); }
+.dialog-panel { display: grid; grid-template-columns: .8fr 1.2fr; gap: 32px; padding-top: 28px; }
+.dialog-panel[hidden] { display: none; }
+.poster-preview { min-height: 200px; display: flex; flex-direction: column; justify-content: space-between; padding: 20px; background: var(--lime); color: var(--ink); }
+.poster-preview strong { max-width: 200px; font-size: clamp(2rem, 4vw, 3.4rem); line-height: .9; letter-spacing: -.06em; font-weight: 500; }
+.poster-preview span, .poster-preview small { font: 10px var(--mono); text-transform: uppercase; }
+.dialog-panel h3 { margin-top: 0; font-size: 20px; }
+.dialog-panel p { color: var(--muted); }
+.model-panel { display: block; }
+#project-model { display: block; width: 100%; height: 230px; background: var(--ink); }
 .explore { padding-bottom: 130px; }
 .explore-panel { background: var(--coral); padding: 41px 5vw 35px; color: var(--ink); position: relative; overflow: hidden; }
 .explore-panel:after { content: '?'; position: absolute; font-size: 360px; line-height: .7; color: #f88e76; right: 3%; bottom: -22%; font-weight: 700; }
@@ -123,6 +145,10 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
 @starting-style { .question-box:popover-open { opacity: 0; transform: translateY(12px); } }
 .question-kicker { color: var(--coral); font-size: 10px; }
 .question-box p { font-size: clamp(1.1rem, 2vw, 1.4rem); line-height: 1.15; max-width: 410px; margin: 22px 0 16px; letter-spacing: -.03em; }
+.question-actions { display: flex; flex-wrap: wrap; gap: 8px; padding-right: 44px; }
+.share-button { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); background: transparent; color: var(--ink); padding: 8px 9px; cursor: pointer; font: 9px var(--mono); text-transform: uppercase; }
+.share-button:hover { background: var(--lime); border-color: var(--ink); }
+.share-button svg { width: 14px; }
 .icon-button { position: absolute; right: 19px; bottom: 18px; border: 0; background: var(--lime); height: 37px; width: 37px; cursor: pointer; color: var(--ink); }
 .icon-button:hover { background: var(--ink); color: var(--lime); }
 .icon-button svg { width: 17px; }
@@ -188,6 +214,7 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
   .explore-body { display: block; margin: 55px 0; }
   .question-launcher { margin-top: 24px; }
   .question-box { inset: auto 22px 22px; width: auto; padding: 22px 20px; }
+  .question-actions { padding-right: 0; }
   .projects { padding-top: 70px; padding-bottom: 80px; }
   .project-toolbar { display: block; }
   .filter-list { margin-bottom: 16px; }
@@ -198,6 +225,9 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
   .project-card p { font-size: 12px; }
   .project-number { margin-top: 38px; }
   .project-arrow { right: 14px; bottom: 13px; }
+  .project-open { margin-top: 16px; }
+  .project-dialog { padding: 28px 20px; }
+  .dialog-panel { grid-template-columns: 1fr; }
   .explore-footer { gap: 13px; }
   .team h2 { margin-bottom: 40px; }
   .team-strip { margin-top: 65px; display: block; line-height: 2; }

@@ -95,27 +95,27 @@
       <div class="project-grid" id="project-grid">
         <article class="project-card project-card-coral" data-category="cientifica" data-project-id="microbosque">
           <div class="project-card-top"><span class="project-tag">Indagación Científica</span><button class="favorite-button" type="button" aria-pressed="false" aria-label="Guardar Microbosque en favoritos" title="Guardar en favoritos"><i data-lucide="heart"></i></button></div>
-          <span class="project-number">01 / BIOLOGÍA</span><h3>Microbosque</h3><p>¿Cómo cambia la vida del suelo cuando recuperamos un pequeño espacio verde?</p><span class="project-arrow">↗</span>
+          <span class="project-number">01 / BIOLOGÍA</span><h3>Microbosque</h3><p>¿Cómo cambia la vida del suelo cuando recuperamos un pequeño espacio verde?</p><button class="project-open" type="button">Ver proyecto <i data-lucide="arrow-up-right"></i></button>
         </article>
         <article class="project-card project-card-aqua" data-category="tecnologica" data-project-id="aqualab">
           <div class="project-card-top"><span class="project-tag">Solución Tecnológica</span><button class="favorite-button" type="button" aria-pressed="false" aria-label="Guardar AquaLab en favoritos" title="Guardar en favoritos"><i data-lucide="heart"></i></button></div>
-          <span class="project-number">02 / DISEÑO</span><h3>AquaLab</h3><p>Un filtro modular de bajo costo para observar y mejorar el agua de nuestra comunidad.</p><span class="project-arrow">↗</span>
+          <span class="project-number">02 / DISEÑO</span><h3>AquaLab</h3><p>Un filtro modular de bajo costo para observar y mejorar el agua de nuestra comunidad.</p><button class="project-open" type="button">Ver proyecto <i data-lucide="arrow-up-right"></i></button>
         </article>
         <article class="project-card project-card-lime" data-category="cualitativa" data-project-id="voces-del-aula">
           <div class="project-card-top"><span class="project-tag">Indagación Cualitativa</span><button class="favorite-button" type="button" aria-pressed="false" aria-label="Guardar Voces del aula en favoritos" title="Guardar en favoritos"><i data-lucide="heart"></i></button></div>
-          <span class="project-number">03 / COMUNIDAD</span><h3>Voces del aula</h3><p>Historias y conversaciones que revelan cómo aprendemos cuando nos sentimos escuchados.</p><span class="project-arrow">↗</span>
+          <span class="project-number">03 / COMUNIDAD</span><h3>Voces del aula</h3><p>Historias y conversaciones que revelan cómo aprendemos cuando nos sentimos escuchados.</p><button class="project-open" type="button">Ver proyecto <i data-lucide="arrow-up-right"></i></button>
         </article>
         <article class="project-card project-card-ink" data-category="tecnologica" data-project-id="energia-visible">
           <div class="project-card-top"><span class="project-tag">Solución Tecnológica</span><button class="favorite-button" type="button" aria-pressed="false" aria-label="Guardar Energía visible en favoritos" title="Guardar en favoritos"><i data-lucide="heart"></i></button></div>
-          <span class="project-number">04 / ENERGÍA</span><h3>Energía visible</h3><p>Visualizar el consumo eléctrico del colegio para tomar decisiones más conscientes.</p><span class="project-arrow">↗</span>
+          <span class="project-number">04 / ENERGÍA</span><h3>Energía visible</h3><p>Visualizar el consumo eléctrico del colegio para tomar decisiones más conscientes.</p><button class="project-open" type="button">Ver proyecto <i data-lucide="arrow-up-right"></i></button>
         </article>
         <article class="project-card project-card-paper" data-category="cientifica" data-project-id="aire-en-clase">
           <div class="project-card-top"><span class="project-tag">Indagación Científica</span><button class="favorite-button" type="button" aria-pressed="false" aria-label="Guardar Aire en clase en favoritos" title="Guardar en favoritos"><i data-lucide="heart"></i></button></div>
-          <span class="project-number">05 / AMBIENTE</span><h3>Aire en clase</h3><p>Medir qué condiciones hacen más cómodo y saludable el aire dentro del aula.</p><span class="project-arrow">↗</span>
+          <span class="project-number">05 / AMBIENTE</span><h3>Aire en clase</h3><p>Medir qué condiciones hacen más cómodo y saludable el aire dentro del aula.</p><button class="project-open" type="button">Ver proyecto <i data-lucide="arrow-up-right"></i></button>
         </article>
         <article class="project-card project-card-sky" data-category="cualitativa" data-project-id="mapa-de-cuidados">
           <div class="project-card-top"><span class="project-tag">Indagación Cualitativa</span><button class="favorite-button" type="button" aria-pressed="false" aria-label="Guardar Mapa de cuidados en favoritos" title="Guardar en favoritos"><i data-lucide="heart"></i></button></div>
-          <span class="project-number">06 / BIENESTAR</span><h3>Mapa de cuidados</h3><p>Reconocer los gestos cotidianos que hacen que nuestra comunidad se sienta acompañada.</p><span class="project-arrow">↗</span>
+          <span class="project-number">06 / BIENESTAR</span><h3>Mapa de cuidados</h3><p>Reconocer los gestos cotidianos que hacen que nuestra comunidad se sienta acompañada.</p><button class="project-open" type="button">Ver proyecto <i data-lucide="arrow-up-right"></i></button>
         </article>
       </div>
       <p class="empty-projects" id="empty-projects" hidden>No hay proyectos en esta categoría todavía.</p>
@@ -133,6 +133,7 @@
           <div class="question-box" id="question-popover" popover="auto" aria-live="polite">
             <span class="question-kicker">PREGUNTA ALEATORIA</span>
             <p id="question-text">¿Qué cambiarías de tu colegio si pudieras probar una idea durante un día?</p>
+            <div class="question-actions"><button class="share-button" id="copy-question" type="button"><i data-lucide="copy"></i> Copiar tarjeta</button><button class="share-button" id="download-question" type="button"><i data-lucide="download"></i> Descargar PNG</button></div>
             <button class="icon-button" id="new-question" type="button" popovertarget="question-popover" popovertargetaction="show" aria-label="Generar una nueva pregunta" title="Nueva pregunta"><i data-lucide="refresh-cw"></i></button>
           </div>
         </div>
@@ -149,6 +150,16 @@
       <div class="team-strip"><span>EUREKA / 2026</span><span>Investigación · Creatividad · Comunidad</span><span>Fin del recorrido →</span></div>
     </section>
   </main>
+
+  <dialog class="project-dialog" id="project-dialog" aria-labelledby="dialog-title">
+    <button class="dialog-close" id="dialog-close" type="button" aria-label="Cerrar vista previa" title="Cerrar"><i data-lucide="x"></i></button>
+    <div class="dialog-header"><span class="project-tag" id="dialog-category">Área Eureka</span><span class="project-number" id="dialog-number">01 / 2026</span></div>
+    <h2 id="dialog-title">Proyecto</h2>
+    <p class="dialog-description" id="dialog-description"></p>
+    <div class="dialog-tabs" role="tablist" aria-label="Información del proyecto"><button class="dialog-tab is-active" type="button" role="tab" aria-selected="true" data-tab="documents">Documentos</button><button class="dialog-tab" type="button" role="tab" aria-selected="false" data-tab="model">Modelo 3D</button></div>
+    <div class="dialog-panel is-active" id="documents-panel"><div class="poster-preview"><span>EUREKA / 2026</span><strong id="poster-title">Proyecto</strong><small>póster digital</small></div><div><h3>Resumen</h3><p id="dialog-summary"></p><button class="text-link" id="download-summary" type="button">Descargar resumen <i data-lucide="download"></i></button></div></div>
+    <div class="dialog-panel model-panel" id="model-panel" hidden><canvas id="project-model" aria-label="Modelo 3D abstracto del proyecto"></canvas><p>Vista previa 3D ligera preparada para reemplazarse por un modelo del proyecto.</p></div>
+  </dialog>
 
   <footer class="site-footer"><a class="brand" href="#inicio"><span class="brand-mark">E</span><span>EUREKA<span class="brand-dot">.</span></span></a><span>Una pregunta a la vez.</span><span>© 2026</span></footer>
   <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" aria-label="Activar sonidos" title="Activar sonidos"><i data-lucide="volume-x"></i><span>Sonido off</span></button>

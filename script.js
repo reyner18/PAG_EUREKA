@@ -221,3 +221,159 @@ const drawOrbit = (time = 0) => {
 new ResizeObserver(resizeCanvas).observe(stage);
 resizeCanvas();
 requestAnimationFrame(drawOrbit);
+
+// Renderiza una tarjeta 1200 x 630 lista para descargar o copiar.
+const renderQuestionCard = () => {
+  const shareCanvas = document.createElement('canvas');
+  shareCanvas.width = 1200;
+  shareCanvas.height = 630;
+  const shareContext = shareCanvas.getContext('2d');
+  shareContext.fillStyle = '#142321';
+  shareContext.fillRect(0, 0, 1200, 630);
+  shareContext.fillStyle = '#d8f46c';
+  shareContext.fillRect(0, 0, 18, 630);
+  shareContext.fillStyle = '#f2765b';
+  shareContext.font = '500 22px monospace';
+  shareContext.fillText('EUREKA / PREGUNTA ALEATORIA / 2026', 70, 82);
+  shareContext.fillStyle = '#f4f1e9';
+  shareContext.font = '500 54px sans-serif';
+  const words = questionText.textContent.trim().split(' ');
+  const lines = [];
+  let line = '';
+  words.forEach((word) => {
+    const candidate = `${line} ${word}`.trim();
+    if (shareContext.measureText(candidate).width > 1000 && line) {
+      lines.push(line);
+      line = word;
+    } else line = candidate;
+  });
+  lines.push(line);
+  lines.forEach((text, index) => shareContext.fillText(text, 70, 220 + index * 70));
+  shareContext.fillStyle = '#b8e3dc';
+  shareContext.font = '20px monospace';
+  shareContext.fillText('Una pregunta a la vez.', 70, 560);
+  shareContext.fillStyle = '#d8f46c';
+  shareContext.font = '500 28px sans-serif';
+  shareContext.fillText('↗', 1100, 560);
+  return shareCanvas;
+};
+
+const flashButtonLabel = (button, label) => {
+  const original = button.innerHTML;
+  button.textContent = label;
+  setTimeout(() => { button.innerHTML = original; lucide.createIcons(); }, 1500);
+};
+
+document.querySelector('#download-question').addEventListener('click', () => {
+  renderQuestionCard().toBlob((blob) => {
+    const link = document.createElement('a');
+    link.download = 'eureka-pregunta-2026.png';
+    link.href = URL.createObjectURL(blob);
+    link.click();
+    URL.revokeObjectURL(link.href);
+  }, 'image/png');
+  flashButtonLabel(document.querySelector('#download-question'), 'PNG listo');
+});
+
+document.querySelector('#copy-question').addEventListener('click', async () => {
+  const shareCanvas = renderQuestionCard();
+  try {
+    const blob = await new Promise((resolve) => shareCanvas.toBlob(resolve, 'image/png'));
+    if (navigator.clipboard?.write && window.ClipboardItem) await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+    else await navigator.clipboard.writeText(questionText.textContent);
+    flashButtonLabel(document.querySelector('#copy-question'), 'Copiado');
+  } catch (error) {
+    flashButtonLabel(document.querySelector('#copy-question'), 'Selecciona y copia');
+  }
+});
+
+const dialog = document.querySelector('#project-dialog');
+const dialogTitle = document.querySelector('#dialog-title');
+const dialogCategory = document.querySelector('#dialog-category');
+const dialogNumber = document.querySelector('#dialog-number');
+const dialogDescription = document.querySelector('#dialog-description');
+const dialogSummary = document.querySelector('#dialog-summary');
+const posterTitle = document.querySelector('#poster-title');
+let currentProject = null;
+
+// Cada tarjeta funciona como fuente de datos para mantener el contenido sincronizado.
+document.querySelectorAll('.project-open').forEach((button) => {
+  button.addEventListener('click', () => {
+    const card = button.closest('.project-card');
+    currentProject = {
+      id: card.dataset.projectId,
+      title: card.querySelector('h3').textContent,
+      category: card.querySelector('.project-tag').textContent,
+      number: card.querySelector('.project-number').textContent,
+      description: card.querySelector('p').textContent
+    };
+    dialogTitle.textContent = currentProject.title;
+    posterTitle.textContent = currentProject.title;
+    dialogCategory.textContent = currentProject.category;
+    dialogNumber.textContent = currentProject.number;
+    dialogDescription.textContent = currentProject.description;
+    dialogSummary.textContent = `${currentProject.description} Esta investigación propone observar el contexto, reunir evidencias y compartir un aprendizaje útil para la comunidad escolar.`;
+    dialog.showModal();
+  });
+});
+
+document.querySelector('#dialog-close').addEventListener('click', () => dialog.close());
+dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
+
+document.querySelectorAll('.dialog-tab').forEach((tab) => {
+  tab.addEventListener('click', () => {
+    const showModel = tab.dataset.tab === 'model';
+    document.querySelectorAll('.dialog-tab').forEach((item) => item.classList.toggle('is-active', item === tab));
+    document.querySelectorAll('.dialog-tab').forEach((item) => item.setAttribute('aria-selected', String(item === tab)));
+    document.querySelector('#documents-panel').hidden = showModel;
+    document.querySelector('#model-panel').hidden = !showModel;
+    if (showModel) drawProjectModel();
+  });
+});
+
+const modelCanvas = document.querySelector('#project-model');
+const modelContext = modelCanvas.getContext('2d');
+let modelFrame;
+
+const drawProjectModel = (time = 0) => {
+  const ratio = Math.min(devicePixelRatio, 2);
+  const width = modelCanvas.clientWidth;
+  const height = modelCanvas.clientHeight;
+  modelCanvas.width = width * ratio;
+  modelCanvas.height = height * ratio;
+  modelContext.setTransform(ratio, 0, 0, ratio, 0, 0);
+  modelContext.clearRect(0, 0, width, height);
+  const centerX = width / 2;
+  const centerY = height / 2;
+  const size = Math.min(width, height) * .24;
+  const offset = Math.sin(time * .001) * 10;
+  modelContext.strokeStyle = '#d8f46c';
+  modelContext.lineWidth = 2;
+  modelContext.beginPath();
+  modelContext.moveTo(centerX, centerY - size + offset);
+  modelContext.lineTo(centerX + size, centerY - size / 2 + offset);
+  modelContext.lineTo(centerX + size, centerY + size / 2 + offset);
+  modelContext.lineTo(centerX, centerY + size + offset);
+  modelContext.lineTo(centerX - size, centerY + size / 2 + offset);
+  modelContext.lineTo(centerX - size, centerY - size / 2 + offset);
+  modelContext.closePath();
+  modelContext.stroke();
+  modelContext.beginPath();
+  modelContext.moveTo(centerX, centerY - size + offset);
+  modelContext.lineTo(centerX, centerY + offset);
+  modelContext.lineTo(centerX + size, centerY - size / 2 + offset);
+  modelContext.moveTo(centerX, centerY + offset);
+  modelContext.lineTo(centerX - size, centerY - size / 2 + offset);
+  modelContext.stroke();
+  if (!dialog.open || document.querySelector('#model-panel').hidden) return;
+  modelFrame = requestAnimationFrame(drawProjectModel);
+};
+
+document.querySelector('#download-summary').addEventListener('click', () => {
+  const content = `${currentProject.title}\n${currentProject.category}\n\n${dialogSummary.textContent}`;
+  const link = document.createElement('a');
+  link.download = `${currentProject.id}-resumen.txt`;
+  link.href = URL.createObjectURL(new Blob([content], { type: 'text/plain' }));
+  link.click();
+  URL.revokeObjectURL(link.href);
+});
