@@ -10,6 +10,9 @@ while ($true) {
   if ($signature -and $signature -ne $lastSignature) {
     git add -- $tracked
     git commit -m "Actualizacion automatica $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
+    if ($LASTEXITCODE -eq 0) {
+      git push origin main
+    }
     $lastSignature = ''
   } else {
     $lastSignature = $signature
