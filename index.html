@@ -22,7 +22,7 @@
     <nav class="main-nav" aria-label="Navegación principal">
       <a href="#idea">La idea</a>
       <a href="#proceso">Proceso</a>
-      <a href="#proyectos">Proyectos</a>
+      <a href="#evidencias">Evidencias</a>
       <a href="#equipo">Equipo</a>
     </nav>
     <div class="header-actions">
@@ -96,57 +96,29 @@
       </div>
     </section>
 
-    <section class="projects section-wrap" id="proyectos">
-      <div class="section-index">04 — Áreas Eureka 2026</div>
+    <section class="evidence-section section-wrap" id="evidencias">
+      <div class="section-index">04 — Fuentes y evidencias</div>
       <div class="section-heading projects-heading">
-        <h2>Ideas que<br><em>toman forma.</em></h2>
-        <p>Explora investigaciones creadas para entender, resolver y transformar nuestro entorno.</p>
+        <h2>Lo que sabemos<br><em>y cómo leerlo.</em></h2>
+        <p>Organizamos los hallazgos de Viguiera Vital para diferenciar información tradicional, evidencia y orientación médica.</p>
       </div>
-      <div class="project-toolbar" aria-label="Filtros de proyectos">
-        <div class="filter-list" role="group" aria-label="Filtrar por categoría">
-          <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Todos</button>
-          <button class="filter-button" type="button" data-filter="cientifica" aria-pressed="false">Indagación Científica</button>
-          <button class="filter-button" type="button" data-filter="tecnologica" aria-pressed="false">Solución Tecnológica</button>
-          <button class="filter-button" type="button" data-filter="cualitativa" aria-pressed="false">Indagación Cualitativa</button>
-        </div>
-        <span class="project-count" id="project-count" aria-live="polite">6 proyectos</span>
+      <div class="evidence-grid">
+        <article class="evidence-card evidence-card-wide"><span class="vital-label">01 / IDENTIDAD</span><h3>Viguiera procumbens</h3><p>Se presenta como un sinónimo biológico de <em>Aldama helianthoides</em>. Este dato permite ubicar la planta antes de interpretar cualquier producto que la contenga.</p></article>
+        <article class="evidence-card"><span class="vital-label">02 / PRESENTACIÓN</span><h3>Extractos encapsulados</h3><p>En fitoterapia pueden comercializarse bajo nombres específicos. La etiqueta y la concentración determinan cómo debe leerse cada producto.</p></article>
+        <article class="evidence-card"><span class="vital-label">03 / COADYUVANTE</span><h3>No es un reemplazo</h3><p>Un suplemento no sustituye antibióticos ni atención médica cuando existe una prostatitis bacteriana aguda.</p></article>
+        <article class="evidence-card"><span class="vital-label">04 / SÍNTOMAS</span><h3>Observar cambios</h3><p>Molestias urinarias, flujo disminuido o necesidad frecuente de orinar requieren diferenciar la causa con un especialista.</p></article>
+        <article class="evidence-card evidence-card-dark"><span class="vital-label">05 / LECTURA RESPONSABLE</span><h3>Tradición no es prueba clínica</h3><p>Los posibles efectos asociados deben comunicarse con cautela y sin prometer una cura.</p></article>
       </div>
-      <div class="project-grid" id="project-grid">
-        <article class="project-card project-card-coral" data-category="cientifica" data-project-id="viguiera-vital">
-          <div class="project-card-top"><span class="project-tag">Indagación Científica</span><button class="favorite-button" type="button" aria-pressed="false" aria-label="Guardar Viguiera Vital en favoritos" title="Guardar en favoritos"><i data-lucide="heart"></i></button></div>
-          <span class="project-number">01 / SALUD</span><h3>Viguiera Vital</h3><p>Una exploración educativa sobre Viguiera procumbens, sus extractos y la salud prostática.</p><button class="project-open" type="button">Ver proyecto <i data-lucide="arrow-up-right"></i></button>
-        </article>
-        <article class="project-card project-card-aqua" data-category="tecnologica" data-project-id="aqualab">
-          <div class="project-card-top"><span class="project-tag">Solución Tecnológica</span><button class="favorite-button" type="button" aria-pressed="false" aria-label="Guardar AquaLab en favoritos" title="Guardar en favoritos"><i data-lucide="heart"></i></button></div>
-          <span class="project-number">02 / DISEÑO</span><h3>AquaLab</h3><p>Un filtro modular de bajo costo para observar y mejorar el agua de nuestra comunidad.</p><button class="project-open" type="button">Ver proyecto <i data-lucide="arrow-up-right"></i></button>
-        </article>
-        <article class="project-card project-card-lime" data-category="cualitativa" data-project-id="voces-del-aula">
-          <div class="project-card-top"><span class="project-tag">Indagación Cualitativa</span><button class="favorite-button" type="button" aria-pressed="false" aria-label="Guardar Voces del aula en favoritos" title="Guardar en favoritos"><i data-lucide="heart"></i></button></div>
-          <span class="project-number">03 / COMUNIDAD</span><h3>Voces del aula</h3><p>Historias y conversaciones que revelan cómo aprendemos cuando nos sentimos escuchados.</p><button class="project-open" type="button">Ver proyecto <i data-lucide="arrow-up-right"></i></button>
-        </article>
-        <article class="project-card project-card-ink" data-category="tecnologica" data-project-id="energia-visible">
-          <div class="project-card-top"><span class="project-tag">Solución Tecnológica</span><button class="favorite-button" type="button" aria-pressed="false" aria-label="Guardar Energía visible en favoritos" title="Guardar en favoritos"><i data-lucide="heart"></i></button></div>
-          <span class="project-number">04 / ENERGÍA</span><h3>Energía visible</h3><p>Visualizar el consumo eléctrico del colegio para tomar decisiones más conscientes.</p><button class="project-open" type="button">Ver proyecto <i data-lucide="arrow-up-right"></i></button>
-        </article>
-        <article class="project-card project-card-paper" data-category="cientifica" data-project-id="aire-en-clase">
-          <div class="project-card-top"><span class="project-tag">Indagación Científica</span><button class="favorite-button" type="button" aria-pressed="false" aria-label="Guardar Aire en clase en favoritos" title="Guardar en favoritos"><i data-lucide="heart"></i></button></div>
-          <span class="project-number">05 / AMBIENTE</span><h3>Aire en clase</h3><p>Medir qué condiciones hacen más cómodo y saludable el aire dentro del aula.</p><button class="project-open" type="button">Ver proyecto <i data-lucide="arrow-up-right"></i></button>
-        </article>
-        <article class="project-card project-card-sky" data-category="cualitativa" data-project-id="mapa-de-cuidados">
-          <div class="project-card-top"><span class="project-tag">Indagación Cualitativa</span><button class="favorite-button" type="button" aria-pressed="false" aria-label="Guardar Mapa de cuidados en favoritos" title="Guardar en favoritos"><i data-lucide="heart"></i></button></div>
-          <span class="project-number">06 / BIENESTAR</span><h3>Mapa de cuidados</h3><p>Reconocer los gestos cotidianos que hacen que nuestra comunidad se sienta acompañada.</p><button class="project-open" type="button">Ver proyecto <i data-lucide="arrow-up-right"></i></button>
-        </article>
-      </div>
-      <p class="empty-projects" id="empty-projects" hidden>No hay proyectos en esta categoría todavía.</p>
+      <div class="evidence-source"><span>Pregunta de método</span><p>¿La información explica el producto sin sustituir una consulta médica?</p></div>
     </section>
 
     <section class="explore section-wrap" id="explora">
       <div class="explore-panel">
-        <div class="section-index light-index">05 — Activa tu curiosidad</div>
+        <div class="section-index light-index">05 — Preguntas de investigación</div>
         <div class="explore-body">
           <div>
-            <h2>¿Qué tipo de<br><em>explorador</em> eres?</h2>
-            <p>Elige una puerta y descubre una pregunta para empezar tu propia investigación.</p>
+            <h2>Preguntas para<br><em>comprender mejor.</em></h2>
+            <p>Usa esta tarjeta para revisar las preguntas que orientan nuestra investigación.</p>
             <button class="question-launcher" type="button" popovertarget="question-popover" popovertargetaction="show">Abrir una pregunta <i data-lucide="arrow-up-right"></i></button>
           </div>
           <div class="question-box" id="question-popover" popover="auto" aria-live="polite">
@@ -170,19 +142,9 @@
     </section>
   </main>
 
-  <dialog class="project-dialog" id="project-dialog" aria-labelledby="dialog-title">
-    <button class="dialog-close" id="dialog-close" type="button" aria-label="Cerrar vista previa" title="Cerrar"><i data-lucide="x"></i></button>
-    <div class="dialog-header"><span class="project-tag" id="dialog-category">Área Eureka</span><span class="project-number" id="dialog-number">01 / 2026</span></div>
-    <h2 id="dialog-title">Proyecto</h2>
-    <p class="dialog-description" id="dialog-description"></p>
-    <div class="dialog-tabs" role="tablist" aria-label="Información del proyecto"><button class="dialog-tab is-active" type="button" role="tab" aria-selected="true" data-tab="documents">Documentos</button><button class="dialog-tab" type="button" role="tab" aria-selected="false" data-tab="model">Modelo 3D</button></div>
-    <div class="dialog-panel is-active" id="documents-panel"><div class="poster-preview"><span>EUREKA / 2026</span><strong id="poster-title">Proyecto</strong><small>póster digital</small></div><div><h3>Resumen</h3><p id="dialog-summary"></p><button class="text-link" id="download-summary" type="button">Descargar resumen <i data-lucide="download"></i></button></div></div>
-    <div class="dialog-panel model-panel" id="model-panel" hidden><canvas id="project-model" aria-label="Modelo 3D abstracto del proyecto"></canvas><p>Vista previa 3D ligera preparada para reemplazarse por un modelo del proyecto.</p></div>
-  </dialog>
-
   <footer class="site-footer"><a class="brand" href="#inicio"><span class="brand-mark">E</span><span>EUREKA<span class="brand-dot">.</span></span></a><span>Una pregunta a la vez.</span><span>© 2026</span></footer>
   <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" aria-label="Activar sonidos" title="Activar sonidos"><i data-lucide="volume-x"></i><span>Sonido off</span></button>
   <script>lucide.createIcons();</script>
-  <script src="script.js?v=2026-audio"></script>
+  <script src="script.js?v=2026-content"></script>
 </body>
 </html>
