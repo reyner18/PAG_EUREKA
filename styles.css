@@ -270,6 +270,104 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
   .site-footer { padding: 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .site-footer .brand { grid-column: 1; grid-row: 1; }
   .site-footer span:nth-child(2) { grid-column: 1 / -1; grid-row: 2; }
-  .site-footer span:last-child { text-align: right; grid-column: 2; grid-row: 1; }
+    .site-footer span:last-child { text-align: right; grid-column: 2; grid-row: 1; }
+  }
+
+  /* Sistema visual compartido para toda la experiencia */
+  body {
+    background:
+      radial-gradient(circle at 8% 6%, rgba(184, 227, 220, .28), transparent 23%),
+      radial-gradient(circle at 92% 34%, rgba(216, 244, 108, .16), transparent 21%),
+      var(--paper);
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 8;
+    background: rgba(244, 241, 233, .74);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .hero,
+  .statement,
+  .vital-research,
+  .process,
+  .projects,
+  .explore,
+  .team {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before,
+  .statement::before,
+  .process::before,
+  .projects::before,
+  .team::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: .22;
+    background-image: linear-gradient(rgba(20, 35, 33, .1) 1px, transparent 1px), linear-gradient(90deg, rgba(20, 35, 33, .1) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(to bottom, black, transparent 82%);
+  }
+
+  .statement,
+  .projects {
+    background: rgba(230, 228, 219, .72);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+
+  .image-frame img,
+  .image-frame:before,
+  .explore-panel,
+  .question-box,
+  .process-card,
+  .project-card,
+  .vital-card,
+  .medical-notice,
+  .poster-preview {
+    border-radius: 18px;
+  }
+
+  .image-frame img { border-radius: 2px; }
+  .image-frame:before { border-radius: 18px; }
+  .explore-panel { box-shadow: 0 18px 45px rgba(20, 35, 33, .08); }
+  .process-card,
+  .project-card { border-color: rgba(20, 35, 33, .11); }
+  .process-card-share,
+  .project-card-ink { background: rgba(20, 35, 33, .9); }
+  .button,
+  .filter-button,
+  .question-launcher,
+  .share-button,
+  .dialog-tab { border-radius: 999px; }
+  .button-dark { box-shadow: 0 10px 22px rgba(20, 35, 33, .14); }
+  .section-index,
+  .card-number,
+  .project-number { letter-spacing: .08em; }
+
+  [data-theme="dark"] .site-header { background: rgba(23, 36, 33, .78); }
+  [data-theme="dark"] .statement,
+  [data-theme="dark"] .projects { background: rgba(33, 51, 47, .78); }
+  [data-theme="dark"] .medical-notice,
+  [data-theme="dark"] .vital-card,
+  [data-theme="dark"] .project-card-paper { background: rgba(255, 255, 255, .08); }
+
+  @media (max-width: 760px) {
+    .site-header { position: relative; }
+    .hero::before,
+    .statement::before,
+    .process::before,
+    .projects::before,
+    .team::before { background-size: 34px 34px; }
+    .image-frame img { border-radius: 2px; }
+  }
   .sound-toggle { right: 14px; bottom: 14px; }
 }
