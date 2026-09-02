@@ -34,11 +34,11 @@ themeToggle.addEventListener('click', () => {
 });
 
 const questions = [
-  '¿Qué cambiarías de tu colegio si pudieras probar una idea durante un día?',
-  '¿Qué problema de tu comunidad merece una solución creativa?',
-  '¿Qué objeto cotidiano reinventarías para hacerlo más útil?',
-  '¿Qué pregunta te gustaría responder antes de terminar este año?',
-  '¿Qué aprenderías si no tuvieras miedo de equivocarte?'
+  '¿Qué es Viguiera procumbens y cómo se relaciona con Aldama helianthoides?',
+  '¿Qué diferencia existe entre un suplemento y un tratamiento médico para la prostatitis?',
+  '¿Qué información debe revisarse antes de consumir un extracto encapsulado?',
+  '¿Por qué la duración y la conservación son importantes en un producto vegetal?',
+  '¿Cuándo es necesario consultar a un especialista por síntomas urinarios?'
 ];
 
 const questionText = document.querySelector('#question-text');
