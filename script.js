@@ -98,43 +98,5 @@ document.querySelectorAll('.statement, .process, .explore, .team').forEach((sect
   revealObserver.observe(section);
 });
 
-const canvas = document.querySelector('#orbit-canvas');
-const stage = document.querySelector('#orbital-stage');
-const context = canvas.getContext('2d');
-const particles = Array.from({ length: 18 }, (_, index) => ({ angle: index * .35, radius: 70 + (index % 4) * 22, speed: .0015 + index * .0002 }));
-
-const resizeCanvas = () => {
-  const ratio = Math.min(devicePixelRatio, 2);
-  canvas.width = stage.clientWidth * ratio;
-  canvas.height = stage.clientHeight * ratio;
-  context.setTransform(ratio, 0, 0, ratio, 0, 0);
-};
-
-const drawOrbit = (time = 0) => {
-  const width = stage.clientWidth;
-  const height = stage.clientHeight;
-  context.clearRect(0, 0, width, height);
-  context.strokeStyle = getComputedStyle(root).getPropertyValue('--coral');
-  context.globalAlpha = .25;
-  context.lineWidth = 1;
-  context.beginPath();
-  context.ellipse(width / 2, height / 2, Math.min(width, height) * .42, Math.min(width, height) * .28, -.25, 0, Math.PI * 2);
-  context.stroke();
-  particles.forEach((particle) => {
-    const angle = particle.angle + time * particle.speed;
-    const x = width / 2 + Math.cos(angle) * particle.radius;
-    const y = height / 2 + Math.sin(angle) * particle.radius * .65;
-    context.fillStyle = getComputedStyle(root).getPropertyValue('--lime');
-    context.globalAlpha = .8;
-    context.beginPath();
-    context.arc(x, y, 2.2, 0, Math.PI * 2);
-    context.fill();
-  });
-  requestAnimationFrame(drawOrbit);
-};
-
-new ResizeObserver(resizeCanvas).observe(stage);
-resizeCanvas();
-requestAnimationFrame(drawOrbit);
 
 

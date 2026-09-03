@@ -20,10 +20,7 @@
 
 /* Paleta oscura global: evita que las superficies vuelvan al blanco crema. */
 body {
-  background:
-    radial-gradient(circle at 8% 6%, rgba(208, 223, 204, .20), transparent 24%),
-    radial-gradient(circle at 92% 34%, rgba(223, 231, 184, .12), transparent 20%),
-    var(--paper);
+  background: var(--paper);
   text-align: left;
 }
 
@@ -74,7 +71,7 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
 .button-dark svg { width: 16px; }
 .button-dark:hover { background: var(--coral); }
 .hero-visual { position: relative; }
-.orbit-canvas { position: absolute; inset: -12% -12% -10% -12%; width: 124%; height: 122%; pointer-events: none; opacity: .7; }
+.orbit-canvas { display: none; }
 .image-frame { position: relative; width: min(100%, 450px); margin: auto; }
 .image-frame:before { display: none; }
 .image-frame img { display: block; width: min(100%, 390px); height: auto; aspect-ratio: auto; object-fit: contain; filter: saturate(.78); }
