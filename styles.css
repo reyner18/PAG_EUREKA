@@ -82,8 +82,8 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
 .hero-stamp strong { font-size: 16px; }
 .scroll-cue { position: absolute; bottom: 25px; left: 10vw; color: var(--muted); font: 10px var(--mono); text-transform: uppercase; display: flex; align-items: center; gap: 12px; }
 .scroll-line { width: 52px; height: 1px; background: var(--coral); }
-.statement { background: var(--paper); padding-top: 100px; padding-bottom: 120px; }
-.section-index { color: var(--coral); margin-bottom: 53px; }
+.statement { background: var(--paper); padding-top: 52px; padding-bottom: 120px; }
+.section-index { color: var(--coral); margin-bottom: 28px; }
 .statement-content { display: grid; grid-template-columns: 1.55fr .65fr; gap: 13vw; }
 .display-text { font-size: var(--title-size); font-weight: 500; line-height: 1.04; letter-spacing: -.055em; margin: 0; }
 .display-text span { color: var(--coral); }
@@ -92,7 +92,7 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
 .statement-aside p, .display-text { text-align: justify; }
 .rule { height: 1px; background: var(--line); margin: 35px 0; }
 .mono-text { font: 12px var(--mono); line-height: 1.6; }
-.vital-research { position: relative; isolation: isolate; padding-top: 110px; padding-bottom: 135px; background: var(--paper); }
+.vital-research { position: relative; isolation: isolate; padding-top: 58px; padding-bottom: 135px; background: var(--paper); }
 .vital-research::before { content: ''; position: absolute; inset: 0; z-index: -1; opacity: .18; pointer-events: none; background-image: linear-gradient(rgba(20,35,33,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(20,35,33,.12) 1px, transparent 1px); background-size: 42px 42px; mask-image: linear-gradient(to bottom, black, transparent 85%); }
 .vital-heading { margin-bottom: 45px; }
 .vital-heading h2 { font-weight: 700; }
@@ -115,7 +115,7 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
 .vital-warning { display: grid; grid-template-columns: .35fr 1fr; gap: 30px; margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--line); }
 .vital-warning span { color: var(--coral); font: 11px var(--mono); text-transform: uppercase; }
 .vital-warning p { max-width: 690px; margin: 0; color: var(--muted); font-size: var(--text-size); }
-.evidence-section { position: relative; isolation: isolate; padding-top: 100px; padding-bottom: 125px; background: var(--paper); }
+.evidence-section { position: relative; isolation: isolate; padding-top: 52px; padding-bottom: 125px; background: var(--paper); }
 .evidence-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .evidence-card { min-height: 230px; padding: 25px; border: 1px solid rgba(13, 27, 29, .15); border-radius: 18px; background: var(--panel); color: #0d1b1d; box-shadow: 0 10px 30px rgba(0, 0, 0, .18); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); transition: transform .3s ease, box-shadow .3s ease; }
 .evidence-card:hover { transform: translateY(-5px); box-shadow: 0 18px 40px rgba(0, 0, 0, .1); }
@@ -127,7 +127,7 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
 .evidence-source { display: grid; grid-template-columns: .35fr 1fr; gap: 30px; margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--line); }
 .evidence-source span { color: var(--coral); font: 11px var(--mono); text-transform: uppercase; }
 .evidence-source p { margin: 0; color: var(--muted); font-size: var(--text-size); }
-.process { padding-top: 101px; padding-bottom: 125px; }
+.process { padding-top: 52px; padding-bottom: 125px; }
 .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin-bottom: 63px; }
 .section-heading h2, .explore h2, .team h2 { font-size: var(--title-size); line-height: .98; letter-spacing: -.06em; font-weight: 500; margin: 0; }
 .section-heading p { max-width: 250px; color: var(--muted); margin: 0 5% 4px 0; font-size: var(--text-size); }
@@ -217,7 +217,7 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
 .icon-button svg { width: 17px; }
 .explore-footer { display: flex; gap: 25px; align-items: start; font: 11px var(--mono); position: relative; z-index: 1; }
 .footer-arrow { font-size: 25px; line-height: .7; }
-.team { padding-top: 97px; padding-bottom: 78px; }
+.team { padding-top: 52px; padding-bottom: 78px; }
 .team-layout { display: grid; grid-template-columns: 1.1fr .7fr; gap: 20%; align-items: end; }
 .team-copy { max-width: 270px; color: var(--muted); font-size: var(--text-size); }
 .text-link { display: inline-flex; gap: 9px; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); padding: 11px 0 4px; font-size: 13px; }
@@ -255,8 +255,8 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
   .hero-stamp { left: -16%; bottom: -7%; width: 86px; height: 86px; }
   .hero-stamp strong { font-size: 13px; }
   .scroll-cue { left: 22px; bottom: 34px; }
-  .statement, .process, .team { padding-top: 70px; padding-bottom: 80px; }
-  .vital-research { padding-top: 70px; padding-bottom: 80px; }
+  .statement, .process, .team { padding-top: 42px; padding-bottom: 80px; }
+  .vital-research { padding-top: 42px; padding-bottom: 80px; }
   .vital-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .vital-card, .vital-card-featured { grid-column: auto; min-height: 245px; padding: 17px 13px; }
   .vital-card h3 { margin-top: 42px; font-size: var(--subtitle-size); }
@@ -265,7 +265,7 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
   .vital-warning p { margin-top: 13px; }
   .statement-content, .team-layout { display: block; }
   .statement-aside { margin-top: 40px; max-width: 280px; }
-  .section-index { margin-bottom: 35px; }
+  .section-index { margin-bottom: 20px; }
   .section-heading { display: block; margin-bottom: 40px; }
   .section-heading p { margin-top: 24px; }
   .process-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; gap: 10px; }
@@ -280,7 +280,7 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
   .question-box { inset: auto 22px 22px; width: auto; padding: 22px 20px; }
   .question-actions { padding-right: 0; }
   .projects { padding-top: 70px; padding-bottom: 80px; }
-  .evidence-section { padding-top: 70px; padding-bottom: 80px; }
+  .evidence-section { padding-top: 42px; padding-bottom: 80px; }
   .evidence-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .evidence-card, .evidence-card-wide { grid-column: auto; min-height: 230px; padding: 17px 13px; }
   .evidence-card h3 { margin-top: 40px; font-size: var(--subtitle-size); }
