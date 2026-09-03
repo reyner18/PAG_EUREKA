@@ -1,3 +1,4 @@
+/* ==================== VARIABLES ==================== */
 :root {
   --ink: #edf3ec;
   --paper: #5a7c73;
@@ -18,6 +19,7 @@
   --text-size: 1rem;
 }
 
+/* ==================== BASE Y TEMA ==================== */
 /* Paleta oscura global: evita que las superficies vuelvan al blanco crema. */
 body {
   background: var(--paper);
@@ -31,12 +33,14 @@ body {
 .process-card:hover, .process-card-share:hover, .project-card:hover { background: var(--panel-strong); }
 .sound-toggle { background: rgba(223, 231, 184, .92); }
 
+/* ==================== RESET Y TIPOGRAFIA ==================== */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: var(--text-size); line-height: 1.6; overflow-x: hidden; }
 body, p, li, a, span, button, h1, h2, h3, h4, h5, h6, strong, em {
   text-align: justify;
 }
+/* ==================== ENCABEZADO Y NAVEGACION ==================== */
 .topline { height: 31px; background: var(--ink); color: var(--lime); display: flex; justify-content: space-between; align-items: center; padding: 0 5vw; font: 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; }
 .site-header { position: sticky; top: 0; z-index: 8; height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; border-bottom: 1px solid var(--line); }
 .header-actions { display: flex; align-items: center; gap: 24px; }
@@ -53,7 +57,10 @@ body, p, li, a, span, button, h1, h2, h3, h4, h5, h6, strong, em {
 .tab-panel { scroll-margin-top: 86px; }
 .header-cta { display: flex; gap: 7px; align-items: center; border-bottom: 1px solid var(--ink); padding-bottom: 4px; }
 .header-cta svg, .text-link svg { width: 15px; }
+/* ==================== ELEMENTOS COMPARTIDOS ==================== */
 .section-wrap { padding-left: 10vw; padding-right: 10vw; }
+
+/* ==================== PESTANA: INICIO ==================== */
 .hero { min-height: 560px; display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; align-items: center; position: relative; padding-top: 22px; padding-bottom: 38px; }
 .eyebrow, .section-index, .question-kicker { font: 11px var(--mono); text-transform: uppercase; letter-spacing: .08em; }
 .eyebrow { display: flex; gap: 10px; align-items: center; margin: 0 0 27px; }
@@ -82,6 +89,7 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
 .hero-stamp strong { font-size: 16px; }
 .scroll-cue { position: absolute; bottom: 25px; left: 10vw; color: var(--muted); font: 10px var(--mono); text-transform: uppercase; display: flex; align-items: center; gap: 12px; }
 .scroll-line { width: 52px; height: 1px; background: var(--coral); }
+/* ==================== PESTANA: LA IDEA ==================== */
 .statement { background: var(--paper); padding-top: 52px; padding-bottom: 120px; }
 .section-index { color: var(--coral); margin-bottom: 8px; }
 .statement-content { display: grid; grid-template-columns: 1.55fr .65fr; gap: 13vw; }
@@ -92,6 +100,7 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
 .statement-aside p, .display-text { text-align: justify; }
 .rule { height: 1px; background: var(--line); margin: 35px 0; }
 .mono-text { font: 12px var(--mono); line-height: 1.6; }
+/* ==================== PESTANA: INVESTIGACION ==================== */
 .vital-research { position: relative; isolation: isolate; padding-top: 58px; padding-bottom: 135px; background: var(--paper); }
 .vital-research::before { content: ''; position: absolute; inset: 0; z-index: -1; opacity: .18; pointer-events: none; background-image: linear-gradient(rgba(20,35,33,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(20,35,33,.12) 1px, transparent 1px); background-size: 42px 42px; mask-image: linear-gradient(to bottom, black, transparent 85%); }
 .vital-heading { margin-bottom: 45px; }
@@ -115,6 +124,7 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
 .vital-warning { display: grid; grid-template-columns: .35fr 1fr; gap: 30px; margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--line); }
 .vital-warning span { color: var(--coral); font: 11px var(--mono); text-transform: uppercase; }
 .vital-warning p { max-width: 690px; margin: 0; color: var(--muted); font-size: var(--text-size); }
+/* ==================== PESTANA: EVIDENCIAS ==================== */
 .evidence-section { position: relative; isolation: isolate; padding-top: 52px; padding-bottom: 125px; background: var(--paper); }
 .evidence-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .evidence-card { min-height: 230px; padding: 25px; border: 1px solid rgba(13, 27, 29, .15); border-radius: 18px; background: var(--panel); color: #0d1b1d; box-shadow: 0 10px 30px rgba(0, 0, 0, .18); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); transition: transform .3s ease, box-shadow .3s ease; }
@@ -127,6 +137,7 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
 .evidence-source { display: grid; grid-template-columns: .35fr 1fr; gap: 30px; margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--line); }
 .evidence-source span { color: var(--coral); font: 11px var(--mono); text-transform: uppercase; }
 .evidence-source p { margin: 0; color: var(--muted); font-size: var(--text-size); }
+/* ==================== PESTANA: PROCESO ==================== */
 .process { padding-top: 52px; padding-bottom: 125px; }
 .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin-bottom: 63px; }
 .section-heading h2, .explore h2, .team h2 { font-size: var(--title-size); line-height: .98; letter-spacing: -.06em; font-weight: 500; margin: 0; }
@@ -145,6 +156,7 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
 .process-grid:has(.process-card:hover) .process-card:not(:hover) { opacity: .62; }
 .process-card:hover { transform: perspective(900px) translateY(-6px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) rotate(-.4deg); background: var(--panel-strong); box-shadow: 0 18px 35px var(--shadow); opacity: 1 !important; }
 .process-card-share:hover { background: var(--panel-strong); }
+/* ==================== PROYECTOS ==================== */
 .projects { padding-top: 100px; padding-bottom: 125px; background: var(--paper); }
 .evidence-section::before { content: ''; position: absolute; inset: 0; z-index: -1; opacity: .16; pointer-events: none; background-image: linear-gradient(rgba(20,35,33,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(20,35,33,.12) 1px, transparent 1px); background-size: 48px 48px; mask-image: linear-gradient(to bottom, black, transparent 84%); }
 .projects-heading { margin-bottom: 52px; }
@@ -192,6 +204,7 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
 .dialog-panel p { color: var(--muted); }
 .model-panel { display: block; }
 #project-model { display: block; width: 100%; height: 230px; background: var(--ink); }
+/* ==================== EXPLORAR Y PREGUNTAS ==================== */
 .explore { padding-bottom: 130px; }
 .explore-panel { background: var(--panel); padding: 41px 5vw 35px; color: #0d1b1d; position: relative; overflow: hidden; }
 .explore-panel:after { content: '?'; position: absolute; font-size: 360px; line-height: .7; color: rgba(13, 27, 29, .12); right: 3%; bottom: -22%; font-weight: 700; }
@@ -217,6 +230,7 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
 .icon-button svg { width: 17px; }
 .explore-footer { display: flex; gap: 25px; align-items: start; font: 11px var(--mono); position: relative; z-index: 1; }
 .footer-arrow { font-size: 25px; line-height: .7; }
+/* ==================== PESTANA: EQUIPO Y PIE ==================== */
 .team { padding-top: 52px; padding-bottom: 78px; }
 .team-layout { display: grid; grid-template-columns: 1.1fr .7fr; gap: 20%; align-items: end; }
 .team-copy { max-width: 270px; color: var(--muted); font-size: var(--text-size); }
@@ -225,15 +239,18 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
 .site-footer { background: var(--ink); color: var(--paper); min-height: 92px; padding: 0 5vw; display: flex; align-items: center; justify-content: space-between; font: 11px var(--mono); }
 .site-footer .brand { color: var(--paper); }
 .site-footer .brand-mark { color: var(--ink); }
+/* ==================== CONTROLES FLOTANTES ==================== */
 .sound-toggle { position: fixed; right: 24px; bottom: 24px; z-index: 10; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(20, 35, 33, .32); border-radius: 999px; background: rgba(244, 241, 233, .76); color: var(--ink); padding: 11px 15px; cursor: pointer; box-shadow: 0 10px 24px var(--shadow); font: 10px var(--mono); text-transform: uppercase; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: transform .25s ease, background .25s ease; }
 .sound-toggle:hover { transform: translateY(-3px); background: var(--lime); }
 .sound-toggle svg { width: 15px; }
 .sound-toggle[aria-pressed="true"] { background: var(--lime); }
 
+/* ==================== ANIMACIONES Y ACCESIBILIDAD ==================== */
 .reveal-on-scroll { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
 .reveal-on-scroll.is-visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
 
+/* ==================== RESPONSIVE: MOVIL ==================== */
 @media (max-width: 760px) {
   .topline { padding: 0 22px; font-size: 9px; }
   .site-header { height: 72px; padding: 0 22px; }
