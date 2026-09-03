@@ -1,6 +1,6 @@
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 Set-Location $root
-$tracked = @('index.html', 'styles.css', 'script.js')
+$tracked = @('index.html', 'styles.css', 'script.js', 'images')
 $lastSignature = ''
 
 Write-Host 'Auto-commit activo. Presiona Ctrl+C para detenerlo.'
