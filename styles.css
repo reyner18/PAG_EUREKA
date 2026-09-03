@@ -76,7 +76,7 @@ h1 em, h2 em { font-style: normal; color: var(--coral); }
 .hero-visual { position: relative; }
 .orbit-canvas { position: absolute; inset: -12% -12% -10% -12%; width: 124%; height: 122%; pointer-events: none; opacity: .7; }
 .image-frame { position: relative; width: min(100%, 450px); margin: auto; }
-.image-frame:before { content: none; }
+.image-frame:before { display: none; }
 .image-frame img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; filter: saturate(.78); }
 .image-label { position: absolute; bottom: 13px; left: 16px; color: #fff; font: 11px var(--mono); text-transform: uppercase; }
 .orbit-note { position: absolute; top: 7%; right: 0; font: 12px var(--mono); line-height: 1.6; }
