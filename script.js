@@ -19,7 +19,11 @@ tabLinks.forEach((link) => {
 });
 
 const initialTab = window.location.hash.slice(1);
-if ([...tabPanels].some((panel) => panel.id === initialTab)) showTab(initialTab);
+if ([...tabPanels].some((panel) => panel.id === initialTab)) {
+  showTab(initialTab);
+} else {
+  showTab('idea');
+}
 
 const processCards = document.querySelectorAll('.process-card');
 processCards.forEach((card) => {

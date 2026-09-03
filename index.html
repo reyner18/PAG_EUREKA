@@ -14,7 +14,7 @@
 <body>
 
   <header class="site-header">
-    <a class="brand" href="#inicio" aria-label="Eureka, inicio">
+    <a class="brand" href="#eureka-home" data-tab-target="eureka-home" aria-label="Eureka, inicio">
       <span class="brand-mark">E</span>
       <span>EUREKA<span class="brand-dot">.</span></span>
     </a>
@@ -27,7 +27,7 @@
     </nav>
   </header>
   <main id="inicio">
-    <section class="hero section-wrap">
+    <section class="hero section-wrap tab-panel" id="eureka-home" hidden>
       <div class="hero-copy">
         <p class="eyebrow"><span class="eyebrow-line"></span></p>
         <h1>VIGUIERA<br><em>VITAL</em></h1>
@@ -113,7 +113,7 @@
     </section>
   </main>
 
-  <footer class="site-footer"><a class="brand" href="#inicio"><span class="brand-mark">E</span><span>EUREKA<span class="brand-dot">.</span></span></a><span>Una pregunta a la vez.</span><span>© 2026</span></footer>
+  <footer class="site-footer"><a class="brand" href="#eureka-home" data-tab-target="eureka-home"><span class="brand-mark">E</span><span>EUREKA<span class="brand-dot">.</span></span></a><span>Una pregunta a la vez.</span><span>© 2026</span></footer>
   <script>lucide.createIcons();</script>
   <script src="script.js?v=2026-content"></script>
 </body>
