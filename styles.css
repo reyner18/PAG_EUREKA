@@ -45,8 +45,8 @@ body, p, li, a, span, button, h1, h2, h3, h4, h5, h6, strong, em {
 .brand { color: var(--ink); display: flex; gap: 10px; align-items: center; text-decoration: none; font-weight: 700; letter-spacing: .12em; }
 .brand-mark { height: 31px; width: 31px; display: grid; place-items: center; background: var(--coral); font-size: 19px; letter-spacing: 0; }
 .brand-dot { color: var(--coral); }
-.main-nav { display: flex; gap: 38px; margin-left: 8%; }
-.main-nav a, .header-cta { color: var(--ink); font-size: 13px; text-decoration: none; }
+.main-nav { display: flex; gap: 22px; margin-left: 6%; align-items: center; }
+.main-nav a, .header-cta { color: var(--ink); font-size: 14px; text-decoration: none; }
 .main-nav a:hover, .text-link:hover { color: var(--coral); }
 .main-nav a[aria-selected="true"] { color: var(--coral); border-bottom: 1px solid currentColor; padding-bottom: 4px; }
 .tab-panel[hidden] { display: none; }
